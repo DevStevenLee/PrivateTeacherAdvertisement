@@ -23,7 +23,7 @@ React Native, React Context, Axios, React Navigator, React Native Cli
 
 ## Contribution
 
-##### React Navigator/Navigation
+#### React Navigator/Navigation
 
 * navigationRef  만들어 회원가입에서 메인화면으로 이동할 때 switch navigator처럼 이동할 수 있게 함 
 
@@ -32,21 +32,21 @@ React Native, React Context, Axios, React Navigator, React Native Cli
 * 메인 stackNavigator에 본인 프로필을 위한 TopTab navigator을 자식 스크린으로 추가
 * withNavigaton 만들어 랜더링을 안한 컴포넌트에 접근 가능
 
-##### React Context
+#### React Context
 
 * 서버 데이터를 하나의 Context로 관리하고 로컬에서 my, teacher의 Context를 각각 만들어 관리하여 state 관리 효율성을 높임
 
-##### Server
+#### Server
 
 - 서버를 axios와 ngrok을 통해 로컬서버를 외부에서도 접속
 - 서버에 요청을 보내기 위한 try, catch 구문을 asyncHandler에서 처리하게 함
 
-##### Register
+#### Register
 
 * 회원가입에 필요한 validation 기능 추가
 * JWT 기반 인증 방식을 사용해 서버에서 가져온 토큰을 로컬에 저장함
 
-##### Profile
+#### Profile
 
 * Image Picker 라이브러리를 이용해 사진 불러오기 기능 구현
 * Image  Resizer을 통해 이미지의 크기를 줄여 서버 업로드 시간을 줄임
@@ -58,11 +58,11 @@ React Native, React Context, Axios, React Navigator, React Native Cli
 * 본인 프로필 만든 후 "내 프로필" 버튼을 누르면 본인 프로필로 이동하는 기능 구현
 * 본인 프로필에서 ... 버튼을 눌러 수정하기, 삭제하기 기능 추가
 
-##### Bookmark
+#### Bookmark
 
 * 즐겨찾기 정보를 로컬에 저장해 데이터 손실을 방지함
 
-##### Card
+#### Card
 
 * 선생님 데이터들을 서버에서 가져와 동적으로 Card를 생성 
 
