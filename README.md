@@ -27,7 +27,7 @@ React Native, React Context, Axios, React Navigator, React Native Cli
 
 * navigationRef  만들어 회원가입에서 메인화면으로 이동할 때 switch navigator처럼 이동할 수 있게 함 
 
-  (version 6에는 switch navigator을 지원하지 않기 개발자가 만들어야 함)
+  (version 6에는 switch navigator을 지원하지 않기 때문에 개발자가 만들어야 함)
 
 * 메인 stackNavigator에 본인 프로필을 위한 TopTab navigator을 자식 스크린으로 추가
 * withNavigaton 만들어 랜더링을 안한 컴포넌트에 접근 가능
