@@ -11,17 +11,17 @@ import { navigate } from "../module/navigationRef";
 const authReducer = (state, action) => {
     switch(action.type){
         case "restore_token":
-            return { ...state, accessToken: action.payload.accessToken };
+            return { ...state, token: action.payload };
 
         case 'auth_access':
-            return { ...state, accessToken: action.payload.accessToken, restoreToken: action.payload.restoreToken };
+            return { ...state, token: action.payload };
         default :
             return state;
     }
 }
 
-const restoreToken = (dispatch) => (accessToken) => {
-    dispatch({ type: 'restore_token', payload: { accessToken: accessToken } });
+const restoreToken = (dispatch) => (token) => {
+    dispatch({ type: 'restore_token', payload: token });
 };
 
 const hasEmail = () => asyncHandler( async ( props ) => {
@@ -41,10 +41,8 @@ const signup = (dispatch) => asyncHandler( async ( props ) => {
 
     const res = await api.post('/auth/signup', { email, password });
 
-    await AsyncStorage.setItem('access_token', res.data.accessToken );
-    await AsyncStorage.setItem('refresh_token', res.data.refreshToken );
-
-    dispatch({ type: 'auth_access', payload: { accessToken: res.data.accessToken,  refreshToken: res.data.refreshToken } });
+    await AsyncStorage.setItem('token', res.data.token );
+    dispatch({ type: 'auth_access', payload: res.data.token });
 
     navigate("FindTeachers");
 });
@@ -55,10 +53,8 @@ const signin = (dispatch) => asyncHandler( async ( props ) => {
 
     const res = await api.post('/auth/signin', { email, password });
 
-    await AsyncStorage.setItem('access_token', res.data.accessToken );
-    await AsyncStorage.setItem('refresh_token', res.data.refreshToken );
-
-    dispatch({ type: 'auth_access', payload: { accessToken: res.data.accessToken,  refreshToken: res.data.refreshToken } });
+    await AsyncStorage.setItem('token', res.data.token);
+    dispatch({ type: 'auth_access', payload: res.data.token });
 
     navigate('FindTeachers');
 });
@@ -72,5 +68,5 @@ export const { Provider, Context } = createDataContext(
         signup,
         signin
     },
-    { accessToken: null, refreshToken: null, errorMessage: '' }
+    { token: null, errorMessage: '' }
 );

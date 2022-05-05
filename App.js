@@ -73,7 +73,6 @@ const MainStack = () => (
         />
     </Main.Navigator>
 );
-
 const App = () => {
     const { state, restoreToken } = useContext(AuthContext);
 
@@ -81,7 +80,7 @@ const App = () => {
         const getToken = async () => {
             let tok;
             try {
-                tok = await AsyncStorage.getItem('access_token');
+                tok = await AsyncStorage.getItem('token');
             } catch (e){
                 console.log(e);
             }
@@ -95,7 +94,7 @@ const App = () => {
     return (
         <NavigationContainer res={ navigationRef }>
             {
-                (state.accessToken) !== null ? (
+                (state.token) !== null ? (
                     <MainStack />
                 ) : (
                     <AuthStack />
