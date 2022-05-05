@@ -3,6 +3,7 @@
 ## Intro
 
 * 개발자: 이의진
+* 기획자: 한병숙
 * 목적: 음악 과외 선생님들의 홍보를 쉽게 하기 위해서 개발
 * 레퍼런스
   - https://www.udemy.com/course/the-complete-react-native-and-redux-course/
@@ -13,7 +14,7 @@
 
 * 기간: 22.04.04 ~ X
 
-
+* Figma: https://www.figma.com/file/Q1gPgLowMNJqqzyCtwbQrB/muzyme?node-id=2%3A4
 * BackEnd: https://github.com/DevStevenLee/PrivateTeacherAdvertisementBackend
 
 ## Stack
