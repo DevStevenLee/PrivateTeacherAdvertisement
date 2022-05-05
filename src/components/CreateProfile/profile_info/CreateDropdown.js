@@ -67,6 +67,7 @@ const CreateDropdown = ({
             }}
 
             animated={ true }
+            saveScrollPosition={ false }
 
             onSelect={(index) => {
                 setTextColor("black");
