@@ -6,16 +6,28 @@ import { withNavigation } from "../../module/withNavigation";
 
 import Octicons from "react-native-vector-icons/dist/Octicons";
 import { Context as LocalMyProfileContext } from "../../context/LocalMyProfileContext";
+import useResetUser from "../../hooks/useResetUser";
 
 
 const Header = ({ navigation }) => {
     const { state } = useContext(LocalMyProfileContext);
+    const [ resetUser ] = useResetUser();
 
     return (
         <SafeAreaView style={{
             alignSelf: "flex-end",
             flexDirection: "row"
         }}>
+            <TouchableOpacity
+                onPress={() => {
+                    resetUser().then('');
+                }}>
+                <Text style={styles.goToMyProfileText}>
+                    로그아웃
+                </Text>
+            </TouchableOpacity>
+
+
             <TouchableOpacity
                 onPress={() => {
                     if (Object.keys(state.my_profile).length === 0) {

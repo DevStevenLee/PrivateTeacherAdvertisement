@@ -14,7 +14,7 @@ import { withNavigation } from "../../module/withNavigation";
 const TEACHER_PROPS_LENGTH = 9;
 
 const Header = ({ navigation }) => {
-    const { state, reset } = useContext(LocalMyProfileContext);
+    const { state, resetMyProfile } = useContext(LocalMyProfileContext);
     const { addMyProfileToServer, updateMyProfileFromServer } = useContext(ServerTeacherProfileContext);
 
     const [checkColor, setCheckColor] = useState('#808080')
@@ -63,7 +63,7 @@ const Header = ({ navigation }) => {
                 ? null
                 : <TouchableOpacity
                     onPress={() => {
-                        reset();
+                        resetMyProfile();
                         navigation.goBack();
                     }}
                     style={{ flex: 1 }}

@@ -5,37 +5,25 @@ import asyncHandler from "../module/asyncHandler";
 
 const teacherProfileReducer = (state, action) => {
     switch (action.type) {
-        case 'get_my_profile':
-            return { ...state, 'my_profile': action.payload.profile }
-        case 'get_teacher_profile':
-            return { ...state, 'teachers': action.payload.teachers }
-        case 'delete_profile':
-            return { ...state, 'my_profile': action.payload.profile }
         default:
             return state;
     }
 }
 
-const getTeachersProfileFromServer = (dispatch) => asyncHandler( async ( props ) => {
+const getTeachersProfileFromServer = () => asyncHandler( async ( props ) => {
     const { setTeachersProfileFromServer, setIsTeachersFetch } = props;
 
     const res = await api.get('/profiles/teachers');
     const teachers = res.data.data;
 
-
     if(teachers.length >= 0){
         setTeachersProfileFromServer(teachers);
-
-        dispatch({
-            type: "get_teacher_profile",
-            payload: { "teachers": teachers }
-        })
     }
 
     setIsTeachersFetch(true);
 })
 
-const getMyProfileFromServer = (dispatch) => asyncHandler(async ( props ) => {
+const getMyProfileFromServer = () => asyncHandler(async ( props ) => {
     const { setMyProfileFromServer, setIsMyFetch } = props;
 
     const res = await api.get('/profiles/me');
@@ -44,11 +32,6 @@ const getMyProfileFromServer = (dispatch) => asyncHandler(async ( props ) => {
 
     if(myProfile){
         setMyProfileFromServer(myProfile);
-
-        dispatch({
-            type: 'get_my_profile',
-            payload: { "profile": myProfile }
-        });
     }
 
     setIsMyFetch(true);
@@ -124,7 +107,6 @@ const updateMyProfileFromServer = () => asyncHandler( async ( props ) => {
 
 const deleteMyProfile = (dispatch) => asyncHandler( async () => {
     await api.delete('/profiles/me');
-    dispatch({type: 'delete_profile', payload: { "profile": {} }});
 });
 
 export const { Context, Provider } = createDataContext(

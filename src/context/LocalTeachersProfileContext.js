@@ -15,8 +15,9 @@ const teacherProfilesReducer = (state, action) => {
             return state;
     }
 }
-const setTeachersProfileFromServer = (dispatch) => (teachers) => {
 
+
+const setTeachersProfileFromServer = (dispatch) => (teachers) => {
     if(teachers.length >= 0) {
         const newTeachers = teachers.map(teacher => {
             teacher['bookmark'] = false

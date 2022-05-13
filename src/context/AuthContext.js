@@ -10,6 +10,9 @@ import { navigate } from "../module/navigationRef";
 
 const authReducer = (state, action) => {
     switch(action.type){
+        case 'reset':
+            return { accessToken: null, refreshToken: null }
+
         case "restore_token":
             return { ...state, accessToken: action.payload.accessToken };
 
@@ -18,6 +21,10 @@ const authReducer = (state, action) => {
         default :
             return state;
     }
+}
+
+const resetTokens = (dispatch) => () => {
+    dispatch({ type: 'reset' });
 }
 
 const restoreToken = (dispatch) => (accessToken) => {
@@ -67,6 +74,7 @@ const signin = (dispatch) => asyncHandler( async ( props ) => {
 export const { Provider, Context } = createDataContext(
     authReducer,
     {
+        resetTokens,
         restoreToken,
         hasEmail,
         signup,

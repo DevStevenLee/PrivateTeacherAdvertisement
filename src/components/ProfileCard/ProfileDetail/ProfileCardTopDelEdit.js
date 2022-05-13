@@ -15,7 +15,7 @@ import { Context as LocalMyProfileContext } from "../../../context/LocalMyProfil
 import { Context as ServerTeacherProfileContext } from "../../../context/ServerTeacherProfileContext";
 
 const ProfileCardBookmark = ({navigation}) => {
-    const { reset } = useContext(LocalMyProfileContext);
+    const { resetMyProfile } = useContext(LocalMyProfileContext);
     const { deleteMyProfile } = useContext(ServerTeacherProfileContext);
 
     return (
@@ -40,7 +40,7 @@ const ProfileCardBookmark = ({navigation}) => {
                     </MenuOption>
                     <MenuOption
                         onSelect={async () => {
-                            reset();
+                            resetMyProfile();
                             deleteMyProfile();
                             navigation.navigate("FindTeachers")
                         }}>

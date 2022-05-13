@@ -30,7 +30,7 @@ const myProfileReducer = (state, action) => {
     }
 }
 
-const reset = (dispatch) => () => {
+const resetMyProfile = (dispatch) => () => {
     dispatch({ type: 'reset'});
 }
 
@@ -81,7 +81,7 @@ const addMyDescription = (dispatch) => (description) => {
 export const { Context, Provider } = createDataContext(
     myProfileReducer,
     {
-        reset,
+        resetMyProfile,
         setMyProfileFromServer,
         addMyPhoto,
         addMyCardBackgroundColor,
